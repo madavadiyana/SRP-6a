@@ -34,12 +34,10 @@ public class SrpServer extends SrpBase {
      * User only when user signs up or sets new password.
      * @param userName - username
      * @param password
-     * @param keySizeInBits 
      */
-    public SrpServer(final String userName, final String password, final int keySizeInBits) {
+    public SrpServer(final String userName, final String password) {
         this.userName = userName;
         this.password = password;
-        this.keySizeInBits = keySizeInBits;
     }
 
     /**

@@ -31,8 +31,8 @@ public class SrpClient extends SrpBase {
     private BigInteger a;   
     private static final int SMALL_A_SIZE = 128;
 
-    public SrpClient(final String userName, final String password, final int keySizeInBits) {
-        super(userName, password, keySizeInBits);
+    public SrpClient(final String userName, final String password) {
+        super(userName, password);
     }
 
     public BigInteger calculateA() {

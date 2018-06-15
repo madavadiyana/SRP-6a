@@ -15,7 +15,6 @@ import org.junit.Test;
 public class TestEndToEnd {
     private static final Log LOG = LogFactory.getLog(TestEndToEnd.class);
     private static final int NUMBER_OF_ITERATIONS = 100; // Repeat the test for 100 times with randomly generated username and password at each iteration.
-    private static final int KEY_SIZE = 2048;
     private static final int USER_NAME_AND_PASSWORD_SIZE_RANGE_MIN = 10;
     private static final int USER_NAME_AND_PASSWORD_SIZE_RANGE_MAX = 40;
 
@@ -27,7 +26,7 @@ public class TestEndToEnd {
             final String userName = IdGenerator.getNewId(userNameSize, null);
             final int passwordSize = new Random().nextInt(USER_NAME_AND_PASSWORD_SIZE_RANGE_MAX - USER_NAME_AND_PASSWORD_SIZE_RANGE_MIN) + USER_NAME_AND_PASSWORD_SIZE_RANGE_MIN;
             final String password = IdGenerator.getNewId(passwordSize, null);
-            LOG.info("Username: " + userName + ", password: " + password); 
+            LOG.info("Username: " + userName + ", password: " + password + ", Salt: " + salt); 
             verify(userName, password, password, salt, true);
         }
     }
@@ -49,12 +48,12 @@ public class TestEndToEnd {
 
     private void verify(final String userName, String realPassword, final String passwordEnteredByUser, final String salt, boolean testFor) throws Exception {
         //Create username and password as part of Sign-Up/Enrollment Process
-        SrpServer createUserNameAndPassword = new SrpServer(userName, realPassword, KEY_SIZE);
+        SrpServer createUserNameAndPassword = new SrpServer(userName, realPassword);
         BigInteger v = createUserNameAndPassword.calculateV(salt); //v will get stored in DB
 
         //Authentication.
         //First Call
-        SrpClient client = new SrpClient(userName, passwordEnteredByUser, KEY_SIZE);
+        SrpClient client = new SrpClient(userName, passwordEnteredByUser);
         BigInteger A = client.calculateA();
 
         //(mimic) Client now calls Server with A

@@ -47,7 +47,6 @@ public abstract class SrpBase {
 
     protected String userName;
     protected String password;
-    protected int keySizeInBits;
     protected BigInteger A;
     protected BigInteger B;
     private static final Log LOG = LogFactory.getLog(SrpBase.class);
@@ -71,10 +70,9 @@ public abstract class SrpBase {
     protected static final BigInteger G = new BigInteger(INIT_G, HEX_RADIX);
     protected static final BigInteger K = calculateK();
 
-    public SrpBase(final String userName, final String password, final int keySizeInBits) {
+    public SrpBase(final String userName, final String password) {
         this.userName = userName;
         this.password = password;
-        this.keySizeInBits = keySizeInBits;
     }
 
     public SrpBase() {
