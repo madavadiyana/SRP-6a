@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.madavadiyana.springridge.srp;
+package com.madavadiyana.springridge.srp.core;
 
 import com.madavadiyana.springridge.srp.util.CryptoUtil;
 import org.apache.commons.logging.Log;

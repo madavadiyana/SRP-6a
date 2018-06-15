@@ -1,5 +1,7 @@
 package com.madavadiyana.springridge.srp;
 
+import com.madavadiyana.springridge.srp.core.SrpClient;
+import com.madavadiyana.springridge.srp.core.SrpServer;
 import java.math.BigInteger;
 import java.util.Random;
 import junit.framework.TestCase;

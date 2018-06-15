@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.madavadiyana.springridge.srp;
+package com.madavadiyana.springridge.srp.core;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 /**
