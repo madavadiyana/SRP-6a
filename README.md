@@ -1,6 +1,7 @@
  SRP 6a Algorithm for Mutual Authentication. 
   
 What is SRP: http://srp.stanford.edu/whatisit.html
+
 Here are the steps as described in http://srp.stanford.edu/design.html and https://en.wikipedia.org/wiki/Secure_Remote_Password_protocol
  
  1) The client generates a and A from Password. Client sends username and A to server. 
@@ -10,6 +11,13 @@ Here are the steps as described in http://srp.stanford.edu/design.html and https
  5) Server generates server Secret and generates its own M1. Then compare with client's M1
  6) Server generates M2 and send to Client
  7) Client generates its own M2 and compares. Now mutual auth is established (without sending password nor secret).
+
+SRP Login Page: 
+    http://34.211.45.2/webcontent/loginSRP.html
+    UserName: madavadiyana, Password: TEv7puHvIx1234
+    (you can watch for netwok traffic from Chrome's Developer Tools)
+
+Regular Login Page: http://34.211.45.2/webcontent/login.html (same credential as above)
 
 TODO: Code Documentation, Unit Tests but there are 2 end to end integration tests.
 
